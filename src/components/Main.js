@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { processedData } from "@/data/processedData";
-import MyChart from "./Chart";
+import MyChart from "./chart";
 
 export default function Main() {
     const [selectInvestment, setSelectInvestment] = useState("Fundo de Ações");

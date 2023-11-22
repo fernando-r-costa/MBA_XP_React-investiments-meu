@@ -22,7 +22,7 @@ ChartJS.register(
 
 const MyChart = ({ filteredInvestment }) => {
 
-    const labels = filteredInvestment.length > 0 ? filteredInvestment[0].reports.map(report => report.month) : [];
+    const labels = filteredInvestment && filteredInvestment.length > 0 ? filteredInvestment[0].reports.map(report => report.month) : [];
 
     const chartData = {
         labels: labels,
