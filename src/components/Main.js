@@ -15,7 +15,7 @@ export default function Main() {
 
     return (
         <main className="container mx-auto mt-4">
-            <form className="flex flex-col gap-2 text-lg lg:flex-row lg:justify-center">
+            <form className="flex flex-col gap-2 text-lg text-center items-center lg:flex-row lg:justify-center">
                 <label htmlFor="investments">Para informações detalhadas escolha o investimento:</label>
                 <select
                     name="investments"
@@ -32,7 +32,7 @@ export default function Main() {
                     <h2 className="text-center font-bold text-xl p-1">
                         {investment.description}
                     </h2>
-                    <h3 className="text-center font-bold text-lg p-1">
+                    <h3 className="text-center font-bold text-sm lg:text-lg p-1">
                         Rendimento total:
                         <span
                             className={`${investment.totalValueChange >= 0
@@ -42,15 +42,14 @@ export default function Main() {
                         >
                             {` R$ ${investment.totalValueChange.toLocaleString("pt-BR", {
                                 maximumFractionDigits: 2,
-                            })}
-            (${((investment.totalValueChange / 1000) * 100).toLocaleString(
+                            })}(${((investment.totalValueChange / 1000) * 100).toLocaleString(
                                 "pt-BR",
                                 { maximumFractionDigits: 2 }
                             )} %)`}
                         </span>
                     </h3>
-                    <div className="flex justify-evenly">
-                        <table className="table-auto w-1/4 m-4">
+                    <div className="flex flex-col lg:flex-row justify-evenly">
+                        <table className="table-auto m-4 lg:w-1/4">
                             <tbody>
                                 {investment.reports.map((report, index) => (
                                     <tr
@@ -90,7 +89,7 @@ export default function Main() {
                                 ))}
                             </tbody>
                         </table>
-                        <span className="w-8/12 m-auto ">
+                        <span className="m-4 w-auto lg:w-8/12 lg:m-auto ">
                             <MyChart filteredInvestment={filteredInvestment} />
                         </span>
                     </div>
